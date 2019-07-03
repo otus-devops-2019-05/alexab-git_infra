@@ -88,3 +88,29 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
 ## PR checklist
  - [x] Выставил label с номером домашнего задания
  - [x] Выставил label с темой домашнего задания
+
+# Выполнено ДЗ №5
+ - [x] Сборка образов VM при помощи Packer
+ - [x] Задание со *
+
+### В процессе сделано:
+ - Установлен и настроен packer по инструкции;
+ - Установлен Application Default Credentials (ADC)по инструкции;
+ - Создан шаблон packer ubuntu16.json;
+ - Параметризирован созданный шаблон с помощью variables.json, так же создан variables.json.example для примера;
+ - Подключены скрипты для провижининга install_ruby.sh и install_mongodb.sh в шаблон ubuntu16.json из предыдущего ДЗ №4;
+ - Создан образ reddit-base из шаблона ubuntu16.json;
+ - Создан инстанс из образа reddit-base, установлены зависимости и запущено приложение;
+ - Создан шаблон immutable.json, создан systemd unit reddit.service, шаблон параметризирован с помощью immutable_vars.json;
+ - Создан образ reddit-full из шаблона с развернутым приложеним reddit;
+ - Создан скрипт create-reddit-vm.sh для запуска вирутальной машины gcluod на основе семейства reddit-full;
+ - Файлы immutable_vars.json и variables.json добавлены в .gitignore;
+
+## PR checklist
+ - [x] Выставил label с номером домашнего задания
+ - [x] Выставил label с темой домашнего задания
+
+
+
+
+
