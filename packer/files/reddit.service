@@ -1,0 +1,15 @@
+[Unit]
+Description=Reddit app
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/appuser/reddit
+ExecStart=/usr/local/bin/puma
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+

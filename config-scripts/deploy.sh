@@ -11,9 +11,9 @@ puma -d
 COMMAND='ps aux'
 
 if $COMMAND | grep -q "[p]uma"; then
-	echo "mongod is up and running"
+	echo "puma is up and running"
 else
-	echo "mongod: installation failure"
+	echo "puma: installation failure"
 fi
 
 
