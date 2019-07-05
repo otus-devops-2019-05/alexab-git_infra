@@ -110,6 +110,33 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - [x] Выставил label с номером домашнего задания
  - [x] Выставил label с темой домашнего задания
 
+# Выполнено ДЗ №6
+ - [x] Практика IaC с использованием Terraform  
+ - [x] Задание со *
+
+### В процессе сделано:
+ - Установлен и настроен Terraform по инструкции;
+ - Установлен Application Default Credentials (ADC)по инструкции;
+ - Создана виртуальная машина с помощью terraform apply;
+ - Добавлен SSH ключ для пользователя appuser в main.tf;
+ - Создан outputs.tf для вывода app_external_ip;
+ - Определено правило фаерволла для приложения в main.cf;
+ - Добавлен тег инстансу VM в main.cf;
+ - Добавлен provisioner Systemd unit puma.service в main.cf;
+ - Добавлен provisioner deploy.sh для развертывания приложения;
+ - Добавлены параметры подключения provisioners, используя для подключения приватный ключ пользователя appuser
+ - Созданы входные переменные и обновлен main.cf для их использования;
+ - Определена input переменная для приватного ключа, обновлен main.cf;
+ - Отформатированны все конфигурационные файлы с помощью terraform fmt;
+ - Создан terraform.tfvars.example
+
+## PR checklist
+ - [] Выставил label с номером домашнего задания
+ - [] Выставил label с темой домашнего задания
+
+
+
+
 
 
 
