@@ -28,3 +28,9 @@ variable zone {
   description = "google compute instance zone"
   default     = "europe-west1-b"
 }
+
+variable "node_count" {
+  #Описание переменной
+  description = "google compute instance count"
+  default     = "1"
+}

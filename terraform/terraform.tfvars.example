@@ -7,3 +7,5 @@ private_key = "~/.ssh/appuser"
 disk_image = "reddit-base"
 
 zone = "europe-west1-b"
+
+node_count = "2"
