@@ -175,11 +175,19 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Создал и применил конфигурацию storage-bucket.tf.
 
 ### Задание со * 
- - Создал ключ доступа к API, добавил переменную окружения GOOGLE_APPLICATION_CREDENTIALS, содержащую путь к ключу доступа.
- - Создал конфигурационный файл backend.tf в дрироекториях prod и stage для хранения стейт-файла terraform
- - Перенес конфигурационные файлы Terraform в другую директорию (вне репозитория). При запуске из этой директории terraform apply сообщает что нет необходимости внесения изменений: No changes. Infrastructure is up-to-date
- - Запустил применение конфигураций одновременно из разных директорий, в результате terraform блокирует стейт-файл: Terraform acquires a state lock to protect the state from being written by multiple users at the same time
+ - Создал ключ доступа к API, добавил переменную окружения GOOGLE_APPLICATION_CREDENTIALS, содержащую путь к ключу доступа;
+ - Создал конфигурационный файл backend.tf в дрироекториях prod и stage для хранения стейт-файла terraform;
+ - Перенес конфигурационные файлы Terraform в другую директорию (вне репозитория). При запуске из этой директории terraform apply сообщает что нет необходимости внесения изменений: No changes. Infrastructure is up-to-date;
+ - Запустил применение конфигураций одновременно из разных директорий, в результате terraform блокирует стейт-файл: Terraform acquires a state lock to protect the state from being written by multiple users at the same time;
 
+### Задание с **
+ - Добавил необходимые provisioner в модули для деплоя и работы приложения;
+ - Пренес файлы, используемые в provisioner, в директории модуля;
+ - Добавиал outputs.tf в модуль db для предачи ip адреса в модуль app;
+ - Добавил provisioner в модуль db для изминения привязки сервиса mongodb к сетевому интерфейсу;
+ - Настроил переменную окружения DATABASE_URL для соединения с базой данных, находящейся на инстансе reddit-db;
+ 
+ 
 ## PR checklist
  - [x] Выставил label с темой домашнего задания
 

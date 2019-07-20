@@ -21,6 +21,30 @@ resource "google_compute_instance" "app" {
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
+
+  connection {
+    type  = "ssh"
+    user  = "appuser"
+    agent = false
+
+    # путь до приватного ключа
+    private_key = "${file(var.private_key)}"
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/puma.service"
+    destination = "/tmp/puma.service"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo \"export DATABASE_URL=${var.db_ip}\" >> ~/.profile",
+    ]
+  }
+
+  provisioner "remote-exec" {
+    script = "${path.module}/deploy.sh"
+  }
 }
 
 resource "google_compute_address" "app_ip" {
