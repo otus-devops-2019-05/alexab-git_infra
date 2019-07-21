@@ -1,0 +1,9 @@
+{
+	"project_id": "infra-244612",
+	"source_image_family": "ubuntu-1604-lts",
+	"machine_type": "f1-micro",
+	"disk_type": "pd-ssd",
+	"image_description": "Base reddit app image with ruby installed",
+	"ssh_username": "appuser",
+	"tags": ""
+}

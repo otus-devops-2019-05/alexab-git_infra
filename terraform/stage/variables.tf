@@ -40,3 +40,4 @@ variable "node_count" {
   description = "google compute instance count"
   default     = "1"
 }
+
