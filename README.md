@@ -205,8 +205,10 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Удалил директорию ~/reddit на appserver и запустил ansible-playbook clone.yml. Получил PLAY RECAP:  appserver: ok=2 changed=1. Плейбук отработал и внес изменения (клонировал reddit.git) в соответсвии с заданием. При повторном запуске ansible-playbook clone.yml в PLAY RECAP changed будет равняться 0, так как reddit.git уже склонирован на целевой виртуальной машине. 
 
 ### Задание со * 
+ - Написал скрипт для создания динамического инвентори reddit-hosts-list.py;
+ - Проверил работу скрипта инвентори с помощью комманды ansible all -m ping;
+ - В файле ansible.cfg сделаны настройки для работы с JSON inventory;
 
- 
 ## PR checklist
  - [x] Выставил label с темой домашнего задания
 
