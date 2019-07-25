@@ -230,12 +230,14 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Разделил reddit_app2.yml на одтельные плейбуки app.yml, db.yml, deploy.yml;
  - Создал site.yml для управления конфигурацией всей инфраструктурой;
  - Пересоздал инфраструктуру и проверил работоспособность, применим плейбук site.yml;
-
+ - Изменил провижининг в Packer на использование плейбуков ansible ansible/packer_app.yml и ansible/packer_db.yml;
 
 ### Задание со * 
+ - В качестве замены своего скприта для ansible dynamic inventory выбрал плагин gcp_compute;
+ - Изменил плейбук app.yml, ip адрес хоста MongoDB определяется динамичекски;
 
-## PR checklist
- - [] Выставил label с темой домашнего задания
+### PR checklist
+ - [x] Выставил label с темой домашнего задания
 
 
 
