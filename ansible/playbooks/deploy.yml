@@ -14,7 +14,7 @@
       bundler:
         state: present
         chdir: /home/appuser/reddit
-  
+
   handlers:
   - name: reload puma
     systemd: name=puma state=restarted
