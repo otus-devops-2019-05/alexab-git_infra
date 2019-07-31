@@ -30,7 +30,8 @@ resource "google_compute_instance" "app" {
     # путь до приватного ключа
     private_key = "${file(var.private_key)}"
   }
-/*
+
+  /*
   provisioner "file" {
     source      = "${path.module}/puma.service"
     destination = "/tmp/puma.service"

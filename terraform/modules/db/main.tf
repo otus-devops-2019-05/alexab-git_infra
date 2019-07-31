@@ -27,7 +27,8 @@ resource "google_compute_instance" "db" {
     # путь до приватного ключа
     private_key = "${file(var.private_key)}"
   }
-/*
+
+  /*
   provisioner "remote-exec" {
     inline = [
       "sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/g' /etc/mongod.conf",

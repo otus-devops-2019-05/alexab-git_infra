@@ -1,5 +1,4 @@
-# alexab-git_infra
-alexab-git Infra repository
+# alexab-git_infra [![Build Status](https://travis-ci.com/otus-devops-2019-05/alexab-git_infra.svg?branch=master)](https://travis-ci.com/otus-devops-2019-05/alexab-git_infra)
 
 # Выполнено ДЗ №3
  - [x] [Знакомство с облачной инфраструктурой. Google Cloud Platform](#gcp)
@@ -265,24 +264,18 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Создал файлы credentials.yml с данными пользователей для окружения stage и prod;
  - Зашифровал файлы credentials.yml, используя vault.key;
  - Добавил вызов плейбука users.yml в файл site.yml;
- - Применил плейбук site.yml, проверил что пользователи созданы в системе;
+ - Применил плейбук site.yml, проверил что пользователи созданы в системе.
  
-
-
 ### Задание со * 
  - Настроил использование динамического инвентори для окружений stage и prod.
 
 ### Задание с **
- -
- 
+ - Для отладки прохождения тестов установил trytravis;
+ - Создал репозиторий alexab-git/trytravis и настроил trytravis;
+ - Добавил в .travis.yml следующие проверки: packer validate, tflint, packer validate, ansible-lint;
+ - Отладил .travis.yml с помощью  trytravis;
+ - Добавил в README.md бейдж со статусом билда.
+
 ### PR checklist
- - [] Выставил label с темой домашнего задания
-
-
-
-
-
-
-
-
+ - [x] Выставил label с темой домашнего задания
 
