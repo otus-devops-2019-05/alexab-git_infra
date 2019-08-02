@@ -1,5 +1,4 @@
-# alexab-git_infra
-alexab-git Infra repository
+# alexab-git_infra [![Build Status](https://travis-ci.com/otus-devops-2019-05/alexab-git_infra.svg?branch=master)](https://travis-ci.com/otus-devops-2019-05/alexab-git_infra)
 
 # Выполнено ДЗ №3
  - [x] [Знакомство с облачной инфраструктурой. Google Cloud Platform](#gcp)
@@ -240,10 +239,43 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - [x] Выставил label с темой домашнего задания
 
 
+# Выполнено ДЗ №10
+ - [x] Ansible: работа с ролями и окружениями.
 
+### В процессе сделано:
+ - Создал новую ветку в гит: ansible-3;
+ - Создал структуру ролей app и db с помощью ansible-galaxy init;
+ - Перенес tasks, handlers, templates, files из ansible/app.yml в соответвующие файлы роли app;
+ - Перенес tasks, handlers, templates из ansible/db.yml в соответвующие файлы роли db;
+ - Проверил работоспособность приложения: создал инфраструктуру stage, применил плейбук site.yml;
+ - Создал окружения для stage и prod;
+ - Определил окружение по умолчанию в ansible.cfg;
+ - Параметризировал конфигурации ролей за счет переменных group_vars;
+ - Перенесем все плейбуки в отдельную директорию ansible/playbooks;
+ - Перенес файлы из директории ansible от предыдущих ДЗ в ansible/old;
+ - Проверил работоспособность приложения: пересоздал инфраструктуру stage, применил плейбук site.yml;
+ - Проверил работоспособность приложения: пересоздал инфраструктуру prod, применил плейбук site.yml;
+ - Установил коммьюнити-роль jdauphant.nginx;
+ - Добавил переменные stage/group_vars/app и prod/group_vars/app для роли jdauphant.nginx;
+ - Открыл 80-ый порт для инстанса reddit-app с помощью тега http-server в терраформ-модуле app;
+ - Добавил вызов роли jdauphant.nginx в плейбуке app.yml;
+ - Создайте файл vault.key, содержащий ключ. Внёс соответсвующие изменения в ansible.cfg;
+ - Создл плейбук users.yml для создания пользователей;
+ - Создал файлы credentials.yml с данными пользователей для окружения stage и prod;
+ - Зашифровал файлы credentials.yml, используя vault.key;
+ - Добавил вызов плейбука users.yml в файл site.yml;
+ - Применил плейбук site.yml, проверил что пользователи созданы в системе.
+ 
+### Задание со * 
+ - Настроил использование динамического инвентори для окружений stage и prod.
 
+### Задание с **
+ - Для отладки прохождения тестов установил trytravis;
+ - Создал репозиторий alexab-git/trytravis и настроил trytravis;
+ - Добавил в .travis.yml следующие проверки: packer validate, tflint, packer validate, ansible-lint;
+ - Отладил .travis.yml с помощью  trytravis;
+ - Добавил в README.md бейдж со статусом билда.
 
-
-
-
+### PR checklist
+ - [x] Выставил label с темой домашнего задания
 

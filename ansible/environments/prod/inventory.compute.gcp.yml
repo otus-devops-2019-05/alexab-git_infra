@@ -14,4 +14,3 @@ groups:
  
 auth_kind: serviceaccount
 service_account_file: ~/Projects/gcp_credentials.json
-

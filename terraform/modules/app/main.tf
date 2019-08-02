@@ -2,7 +2,7 @@ resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "g1-small"
   zone         = "${var.zone}"
-  tags         = ["reddit-app"]
+  tags         = ["reddit-app", "http-server"]
 
   boot_disk {
     initialize_params {
@@ -30,7 +30,8 @@ resource "google_compute_instance" "app" {
     # путь до приватного ключа
     private_key = "${file(var.private_key)}"
   }
-/*
+
+  /*
   provisioner "file" {
     source      = "${path.module}/puma.service"
     destination = "/tmp/puma.service"
