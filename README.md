@@ -302,7 +302,9 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Описал тестовую виртуальную машину в файле db/molecule/default/molecule.yml;
  - Применим playbook.yml, в котором вызывается роль db к созданному хосту;
  - Провел тесты с помощью molecule verify;
- - Добавил проверку, что mongo слушает по нужному порту: tcp/27017
+ - Добавил проверку, что mongo слушает по нужному порту: tcp/27017;
+ - Изменил packer_db.yml и packer_app.yml - теперь используются роли  db и app;
+ - Билд пакера падал, так как не мог найти роль, в ansile.cfg указан относительный путь: roles_path = ./roles. В плейбуках packer_db.yml и packer_app.yml задал необходимый путь с помощью переменной среды: "ansible_env_vars": [ "ANSIBLE_ROLES_PATH=ansible/roles"
  
 ### Задание со *
  - Дополнил конфигурацию Vagrant для корректной работы проксирования приложения с помощью nginx;
