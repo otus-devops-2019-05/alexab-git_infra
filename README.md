@@ -279,3 +279,36 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
 ### PR checklist
  - [x] Выставил label с темой домашнего задания
 
+# Выполнено ДЗ №11
+ - [x] Ansible: Разработка и тестирование Ansible ролей и плейбуков
+
+### В процессе сделано:
+ - Создал новую ветку в гит: ansible-4;
+ - Установил vagrant, создал ansible/Vagrantfile, создал виртуальные машины при помощи комманды vagrant up;
+ - Добавил в .gitignore файлы, относящиеся к vagrant;
+ - Проверил работоспособность при помощи vagrant box list, vagrant box status, vagrant ssh appserver;
+ - Доработал роль db: добавлен провижининг, добавлены таски для установки и управления конфигом MongoDB;
+ - Внёс соответсвующие изменения в файл конфигурации roles/db/tasks/main.yml;
+ - Проверил работу роли: vagrant provision dbserver;
+ - Доработал роль app: добавлен провижининг, добавлены таски для установки ruby и puma;
+ - Внёс соответсвующие изменения в файл конфигурации roles/app/tasks/main.yml;
+ - Проверил работу роли: vagrant provision appserver;
+ - Параметризировал роли app/defaults/main.yml и app/tasks/puma.yml;
+ - Параметризировал ansible/playbooks/deploy.yml;
+ - Переопределил пользователя при вызове плейбуков с помощью extra_vars;
+ - Проверил работу роли: vagrant provision appserver;
+ - Установил Molecule, Testinfra на локальную машину используя pip;
+ - Выполнил команду molecule init для создания заготовки тестов для роли db;
+ - Описал тестовую виртуальную машину в файле db/molecule/default/molecule.yml;
+ - Применим playbook.yml, в котором вызывается роль db к созданному хосту;
+ - Провел тесты с помощью molecule verify;
+ - Добавил проверку, что mongo слушает по нужному порту: tcp/27017
+ 
+### Задание со *
+ - Дополнил конфигурацию Vagrant для корректной работы проксирования приложения с помощью nginx;
+
+### Задание с **
+
+### PR checklist
+ - [x] Выставил label с темой домашнего задания
+
