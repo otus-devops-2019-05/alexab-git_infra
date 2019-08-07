@@ -313,6 +313,7 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
  - Проверил работоспособность с помощью vagrant и packer;
  - Подключить TravisCI для созданного репозитория с ролью db для автоматического прогона тестов в GCE;
  - Добавил бейдж со статусом билда;
+ - Добавил оповещения в канал slack;
 
 
 ### PR checklist
