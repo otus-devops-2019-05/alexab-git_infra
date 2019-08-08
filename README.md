@@ -279,3 +279,43 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
 ### PR checklist
  - [x] Выставил label с темой домашнего задания
 
+# Выполнено ДЗ №11
+ - [x] Ansible: Разработка и тестирование Ansible ролей и плейбуков
+
+### В процессе сделано:
+ - Создал новую ветку в гит: ansible-4;
+ - Установил vagrant, создал ansible/Vagrantfile, создал виртуальные машины при помощи комманды vagrant up;
+ - Добавил в .gitignore файлы, относящиеся к vagrant;
+ - Проверил работоспособность при помощи vagrant box list, vagrant box status, vagrant ssh appserver;
+ - Доработал роль db: добавлен провижининг, добавлены таски для установки и управления конфигом MongoDB;
+ - Внёс соответсвующие изменения в файл конфигурации roles/db/tasks/main.yml;
+ - Проверил работу роли: vagrant provision dbserver;
+ - Доработал роль app: добавлен провижининг, добавлены таски для установки ruby и puma;
+ - Внёс соответсвующие изменения в файл конфигурации roles/app/tasks/main.yml;
+ - Проверил работу роли: vagrant provision appserver;
+ - Параметризировал роли app/defaults/main.yml и app/tasks/puma.yml;
+ - Параметризировал ansible/playbooks/deploy.yml;
+ - Переопределил пользователя при вызове плейбуков с помощью extra_vars;
+ - Проверил работу роли: vagrant provision appserver;
+ - Установил Molecule, Testinfra на локальную машину используя pip;
+ - Выполнил команду molecule init для создания заготовки тестов для роли db;
+ - Описал тестовую виртуальную машину в файле db/molecule/default/molecule.yml;
+ - Применим playbook.yml, в котором вызывается роль db к созданному хосту;
+ - Провел тесты с помощью molecule verify;
+ - Добавил проверку, что mongo слушает по нужному порту: tcp/27017;
+ - Изменил packer_db.yml и packer_app.yml - теперь используются роли  db и app;
+ - Билд пакера падал, так как не мог найти роль, в ansile.cfg указан относительный путь: roles_path = ./roles. В плейбуках packer_db.yml и packer_app.yml задал необходимый путь с помощью переменной среды: "ansible_env_vars": [ "ANSIBLE_ROLES_PATH=ansible/roles"
+ 
+### Задание со *
+ - Дополнил конфигурацию Vagrant для корректной работы проксирования приложения с помощью nginx;
+ - Создал репозиторий https://github.com/alexab-git/db.git и преместил в него роль db;
+ - Настроил подключение роли db через requirements.yml;
+ - Проверил работоспособность с помощью vagrant и packer;
+ - Подключить TravisCI для созданного репозитория с ролью db для автоматического прогона тестов в GCE;
+ - Добавил бейдж со статусом билда;
+ - Добавил оповещения в канал slack;
+
+
+### PR checklist
+ - [x] Выставил label с темой домашнего задания
+
